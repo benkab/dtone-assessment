@@ -11,10 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Install dependencies
-        run: |
-          echo "Installing dependencies"
-          yarn
 
   eslint:
     name: 'Eslint Pipeline'
@@ -22,6 +18,10 @@ jobs:
     needs: setup
     steps:
       - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: |
+          echo "Installing dependencies"
+          yarn
       - name: Eslint check
         run: |
           echo "Checking Eslint"
@@ -33,6 +33,10 @@ jobs:
     needs: setup
     steps:
       - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: |
+          echo "Installing dependencies"
+          yarn
       - name: Run tests
         run: |
           echo "Running tests"
