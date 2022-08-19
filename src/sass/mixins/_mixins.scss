@@ -1,0 +1,25 @@
+@import '../vars/breakpoints';
+
+@mixin small-phones {
+  @media only screen and (max-width: $small-phones) {
+    @content;
+  }
+}
+
+@mixin large-phones {
+  @media only screen and (max-width: $large-phones) {
+    @content;
+  }
+}
+
+@mixin small-desktops {
+  @media only screen and (max-width: $small-desktops) {
+    @content;
+  }
+}
+
+@mixin large-desktops {
+  @media only screen and (min-width: $small-desktops) {
+    @content;
+  }
+}

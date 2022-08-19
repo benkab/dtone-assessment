@@ -1,0 +1,15 @@
+<div class="textfield--wrapper">
+  <Typography v-if="label" :text="label" className="textfield--label" />
+  <input
+    :placeholder="placeholder"
+    :read-only="!editable"
+    :value="value"
+    :class="[
+      {
+        'textfield--input': true,
+        'hasError': !!error
+      }
+    ]"
+  />
+  <Typography v-if="error" :text="error" className="textfield--error-text" />
+</div>

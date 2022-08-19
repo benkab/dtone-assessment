@@ -1,0 +1,21 @@
+@import '@/sass/mixins/mixins.scss';
+
+.container {
+  margin: 0 auto;
+
+  @include large-desktops {
+    width: 1200px;
+  }
+
+  @include small-desktops {
+    width: 1024px;
+  }
+
+  @include large-phones {
+    width: calc(100vw - 48px);
+  }
+
+  @include small-phones {
+    width: calc(100vw - 40px);
+  }
+}
