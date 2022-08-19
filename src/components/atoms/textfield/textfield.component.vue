@@ -1,5 +1,5 @@
 <template src="./textfield.component.html" />
-<style lang="scss" src="./textfield.component.scss"></style>
+<style lang="scss" src="./textfield.component.scss" scoped></style>
 
 <script lang="ts">
 import Typography from '@/components/atoms/typography/typography.component'
