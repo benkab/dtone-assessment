@@ -1,14 +1,18 @@
-/** @format */
-
 import Vue from 'vue'
-import Vuex from 'vuex'
+import Vuex, { StoreOptions } from 'vuex'
+
+import { IRootState } from '@/store/type'
+import { product } from './product'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
-  state: {},
-  getters: {},
-  mutations: {},
-  actions: {},
-  modules: {},
-})
+const debug = process.env.NODE_ENV !== 'production'
+
+const store: StoreOptions<IRootState> = {
+  modules: {
+    product,
+  },
+  strict: debug,
+}
+
+export default new Vuex.Store<IRootState>(store)

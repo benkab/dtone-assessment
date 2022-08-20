@@ -1,0 +1,112 @@
+<div class="modal">
+  <div v-if="Boolean(product)" class="modal--backdrop" @click="onCloseModal"></div>
+  <div
+    :class="[
+      {
+        'modal--content': true,
+        'modal--content--visible': Boolean(product)
+      }
+    ]"
+  >
+    <div v-if="product">
+      <Typography :text="product.name" className="modal--content--title no-margin-bottom" />
+      <Typography :text="product.type" className="modal--content--caption no-margin" />
+      <Typography :text="product.description" className="modal--content--description" />
+      <Tags :tags="product.availability_zones" />
+      <br />
+      <div class="modal--content--block">
+        <div class="modal--content--block--inner-container">
+          <div class="modal--content--small-block">
+            <Typography text="Operator" className="modal--content--caption" />
+            <Typography text="Name" className="modal--content--subtitle" />
+            <Typography :text="product.operator.name" className="modal--content--text" />
+            <Typography text="Country" className="modal--content--subtitle" />
+            <Typography :text="product.operator.country.name" className="modal--content--text" />
+          </div>
+          <div class="modal--content--small-block">
+            <Typography text="Source" className="modal--content--caption" />
+            <Typography text="Amount" className="modal--content--subtitle" />
+            <Typography :text="formatNumber(product.source.amount)" className="modal--content--text" />
+            <Typography :text="capitalizeText(product.source.unit_type)" className="modal--content--subtitle" />
+            <Typography :text="product.source.unit" className="modal--content--text" />
+          </div>
+          <div class="modal--content--small-block">
+            <Typography text="Destination" className="modal--content--caption" />
+            <Typography text="Amount" className="modal--content--subtitle" />
+            <Typography :text="formatNumber(product.destination.amount)" className="modal--content--text" />
+            <Typography :text="capitalizeText(product.destination.unit_type)" className="modal--content--subtitle" />
+            <Typography :text="product.destination.unit" className="modal--content--text" />
+          </div>
+        </div>
+      </div>
+      <div class="modal--content--block">
+        <Typography text="Prices" className="modal--content--caption" />
+        <div class="modal--content--block--inner-container">
+          <div class="modal--content--small-block indented">
+            <Typography text="Retail" className="modal--content--second-subtitle" />
+            <Typography text="Amount" className="modal--content--subtitle" />
+            <Typography :text="formatNumber(product.prices.retail.amount)" className="modal--content--text" />
+            <Typography text="Fee" className="modal--content--subtitle" />
+            <Typography :text="formatNumber(product.prices.retail.fee)" className="modal--content--text" />
+            <Typography :text="capitalizeText(product.prices.retail.unit_type)" className="modal--content--subtitle" />
+            <Typography :text="product.prices.retail.unit" className="modal--content--text" />
+          </div>
+          <div class="modal--content--small-block indented">
+            <Typography text="Wholesale" className="modal--content--second-subtitle" />
+            <Typography text="Amount" className="modal--content--subtitle" />
+            <Typography :text="formatNumber(product.prices.wholesale.amount)" className="modal--content--text" />
+            <Typography text="Fee" className="modal--content--subtitle" />
+            <Typography :text="formatNumber(product.prices.wholesale.fee)" className="modal--content--text" />
+            <Typography :text="capitalizeText(product.prices.wholesale.unit_type)" className="modal--content--subtitle" />
+            <Typography :text="product.prices.wholesale.unit" className="modal--content--text" />
+          </div>
+        </div>
+      </div>
+      <div class="modal--content--block">
+        <div class="modal--content--block--inner-container">
+          <div class="modal--content--small-block">
+            <Typography text="Rates" className="modal--content--caption" />
+            <Typography text="Base" className="modal--content--subtitle" />
+            <Typography :text="formatNumber(product.rates.base)" className="modal--content--text" />
+            <Typography text="Retail" className="modal--content--subtitle" />
+            <Typography :text="formatNumber(product.rates.retail)" className="modal--content--text" />
+            <Typography text="Wholesale" className="modal--content--subtitle" />
+            <Typography :text="formatNumber(product.rates.wholesale)" className="modal--content--text" />
+          </div>
+          <div class="modal--content--small-block">
+            <Typography text="Service" className="modal--content--caption" />
+            <Typography text="Name" className="modal--content--subtitle" />
+            <Typography :text="product.service.name" className="modal--content--text" />
+            <br />
+            <div v-if="product.validity">
+              <Typography text="Validity" className="modal--content--caption" />
+              <Typography :text="capitalizeText(product.validity.unit)" className="modal--content--subtitle" />
+              <Typography :text="product.validity.quantity" className="modal--content--text" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal--content--block">
+        <Typography text="Benefits" className="modal--content--caption" />
+        <div class="modal--content--block--inner-container" v-for="(benefit, index) in product.benefits" :key="index">
+          <div class="modal--content--small-block indented">
+            <Typography text="Amount" className="modal--content--second-subtitle" />
+            <Typography text="Base" className="modal--content--subtitle" />
+            <Typography :text="benefit.amount.base" className="modal--content--text" />
+            <Typography text="Promotion Bonus" className="modal--content--subtitle" />
+            <Typography :text="formatNumber(benefit.amount.promotion_bonus)" className="modal--content--text" />
+            <Typography text="Total Excluding Tax" className="modal--content--subtitle" />
+            <Typography :text="formatNumber(benefit.amount.total_excluding_tax)" className="modal--content--text" />
+            <Typography text="Total Including Tax" className="modal--content--subtitle" />
+            <Typography :text="formatNumber(benefit.amount.total_including_tax)" className="modal--content--text" />
+          </div>
+          <div class="modal--content--small-block">
+            <Typography :text="benefit.type" className="modal--content--caption" />
+            <Typography :text="capitalizeText(benefit.unit_type)" className="modal--content--subtitle" />
+            <Typography :text="benefit.unit" className="modal--content--text" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

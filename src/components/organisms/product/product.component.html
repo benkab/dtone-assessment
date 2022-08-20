@@ -1,0 +1,9 @@
+<div class="product" v-if="product">
+  <Typography :text="product.name" className="product--name" />
+  <Typography :text="product.type" className="product--caption" />
+  <Typography :text="product.description" className="product--description" />
+  <Tags :tags="product.availability_zones" />
+  <a @click="onViewMore">
+    <Typography :text="$t('home.product.viewMore')" className="product--link" />
+  </a>
+</div>

@@ -1,0 +1,26 @@
+@import '@/sass/vars/vars.scss';
+
+.tags {
+  display: flex;
+  margin-top: 12px;
+  margin-bottom: 0;
+}
+
+.tag {
+  font-size: map-get($font-sizes, 'xs');
+  margin: 0;
+  opacity: 0.7;
+  text-transform: none;
+
+  &--wrapper {
+    border: 1px solid $border;
+    border-radius: map-get($border-radius, 'xs');
+    padding: 6px 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    background-color: $dark-gray;
+  }
+}

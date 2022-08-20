@@ -1,4 +1,11 @@
-<div class="textfield--wrapper">
+<div 
+  :class="[
+    {
+      'textfield--wrapper': true,
+      'textfield--no-margin': !!noMargin
+    }
+  ]"
+>
   <Typography v-if="label" :text="label" className="textfield--label" />
   <input
     :placeholder="placeholder"
@@ -10,6 +17,9 @@
         'hasError': !!error
       }
     ]"
+    :type="type"
+    v-on:change="onChange"
+    v-model="input"
   />
   <Typography v-if="error" :text="error" className="textfield--error-text" />
 </div>

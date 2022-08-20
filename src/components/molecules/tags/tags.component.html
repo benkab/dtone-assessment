@@ -1,0 +1,5 @@
+<div class="tags" v-if="tags.length > 0">
+  <div v-for="tag in tags" :key="tag" class="tag--wrapper">
+     <Typography :text="capitalizeText(tag)" class="tag" />
+  </div>
+</div>
