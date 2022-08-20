@@ -1,9 +1,9 @@
 name: Continuous Integration
 
 on:
-  push:
+  pull_request:
     branches:
-      - '**'
+      - ['main']
 
 jobs:
   setup:
@@ -41,3 +41,8 @@ jobs:
         run: |
           echo "Running tests"
           yarn run test
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}

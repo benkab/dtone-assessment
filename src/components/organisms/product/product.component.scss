@@ -6,12 +6,12 @@
   flex-direction: column;
   flex: 1 0 21%;
   padding-right: 60px;
-  height: 240px;
+  margin-bottom: 8px;
 
   @include large-phones {
     display: block;
     height: auto;
-    margin-bottom: 32px;
+   
   }
 
   &--name {

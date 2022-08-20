@@ -7,7 +7,7 @@ export default {
   props: {
     text: {
       required: true,
-      type: String,
+      type: [Number, String],
     },
     className: {
       required: false,

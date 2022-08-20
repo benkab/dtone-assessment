@@ -1,9 +1,9 @@
 module.exports = {
   preset: '@vue/cli-plugin-unit-jest/presets/typescript-and-babel',
-  rootDir: './src',
+  rootDir: '.',
   testMatch: ['**/src/**/*.spec.ts'],
   moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/$1',
+    '^@/(.*)$': '<rootDir>/src/$1',
   },
   collectCoverage: true,
   collectCoverageFrom: ['**/*.{ts,vue}', '!**/node_modules/**'],

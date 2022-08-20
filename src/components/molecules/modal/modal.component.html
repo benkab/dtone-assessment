@@ -17,11 +17,9 @@
       <div class="modal--content--block">
         <div class="modal--content--block--inner-container">
           <div class="modal--content--small-block">
-            <Typography text="Operator" className="modal--content--caption" />
-            <Typography text="Name" className="modal--content--subtitle" />
-            <Typography :text="product.operator.name" className="modal--content--text" />
-            <Typography text="Country" className="modal--content--subtitle" />
-            <Typography :text="product.operator.country.name" className="modal--content--text" />
+            <Typography text="Product Type" className="modal--content--caption" />
+            <Typography text="Description" className="modal--content--subtitle" />
+            <Typography :text="productTypeDescription" className="modal--content--text" />
           </div>
           <div class="modal--content--small-block">
             <Typography text="Source" className="modal--content--caption" />
@@ -64,6 +62,13 @@
       </div>
       <div class="modal--content--block">
         <div class="modal--content--block--inner-container">
+          <div class="modal--content--small-block">
+            <Typography text="Operator" className="modal--content--caption" />
+            <Typography text="Name" className="modal--content--subtitle" />
+            <Typography :text="product.operator.name" className="modal--content--text" />
+            <Typography text="Country" className="modal--content--subtitle" />
+            <Typography :text="product.operator.country.name" className="modal--content--text" />
+          </div>
           <div class="modal--content--small-block">
             <Typography text="Rates" className="modal--content--caption" />
             <Typography text="Base" className="modal--content--subtitle" />
