@@ -12,12 +12,10 @@ export enum ACTIONS {
 export const actions: ActionTree<IProductState, IRootState> = {
   [ACTIONS.GET_PRODUCTS]({ commit }): unknown {
     return new Promise((resolve, reject) => {
-      const node_env = process.env.NODE_ENV
+      const nodeEnv = process.env.NODE_ENV
       const baseUrl = process.env.VUE_APP_API_URL
-      console.log('NODE_ENV', node_env)
-      console.log('BASE_URL', baseUrl)
       return fetch(
-        node_env === 'production'
+        nodeEnv === 'production'
           ? `${baseUrl}/v1/products?per_page=${21}`
           : `/v1/products?per_page=${21}`,
         {
