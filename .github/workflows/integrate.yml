@@ -41,7 +41,3 @@ jobs:
         run: |
           echo "Running tests"
           yarn run test
-
-  coverage:
-    - name: Code Coverage Summary
-    uses: irongut/CodeCoverageSummary@v1.3.0
