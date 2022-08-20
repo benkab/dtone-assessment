@@ -7,6 +7,6 @@ describe('Typography', () => {
     const wrapper = shallowMount(Typography, {
       propsData: { text },
     })
-    expect(wrapper.text()).toMatch(text)
+    expect(wrapper.text()).toMatch('text')
   })
 })

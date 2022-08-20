@@ -9,11 +9,12 @@
         </div>
       </div>
       <div class="home--content-wrapper">
-        <Typography v-if="products.loading" :text="$t('home.loadingText')" className="home--default-text" />
+        <Loaders v-if="products.loading" :text="$t('home.loadingText')" />
         <Typography v-if="!products.loading && visibleProducts.length === 0" :text="$t('home.noFoundText')" className="home--default-text" />
         <Product v-if="visibleProducts.length > 0" v-for="product in this.visibleProducts" :product="product" :key="product.id" />
+         <Loaders v-if="loadingMore" :text="$t('home.loadingMoreText')" />  
       </div>
-      <div v-if="visibleProducts.length > 0" class="home--pagination">
+      <div v-if="visibleProducts.length > 0 && !loadingMore" class="home--pagination">
         <a
           :class="[
             {
