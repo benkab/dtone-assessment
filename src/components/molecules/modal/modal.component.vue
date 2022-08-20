@@ -5,6 +5,7 @@
 import { ProductBus } from '@/main'
 import { capitalize } from '@/helpers/string'
 import { beautifyNumber } from '@/helpers/number'
+import { productTypeMap } from '@/constants/product'
 import Typography from '@/components/atoms/typography/typography.component'
 import Tags from '@/components/molecules/tags/tags.component'
 
@@ -28,6 +29,11 @@ export default {
     },
     capitalizeText(text: string): string {
       return capitalize(text)
+    },
+  },
+  computed: {
+    productTypeDescription() {
+      return productTypeMap[this.product?.type]
     },
   },
   created() {

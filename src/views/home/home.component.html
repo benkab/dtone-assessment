@@ -5,7 +5,7 @@
       <div class="home--title-wrapper">
         <Typography :text="$t('home.title')" className="home--title" />
         <div>
-          <Textfield :placeholder="$t('home.searchByName')" noMargin :onInputChange="onSearch" />
+          <Textfield :placeholder="$t('home.filterByName')" noMargin :onInputChange="onFilter" />
         </div>
       </div>
       <div class="home--content-wrapper">
@@ -17,22 +17,12 @@
         <a
           :class="[
             {
-              'disabled': !canGoBack,
+              'disabled': !canLoadMore,
             }
           ]"
-          @click="onShowPrevious"
+          @click="onLoadMore"
         >
-          <Typography :text="$t('home.pagination.previous')" className="home--pagination--text" />
-        </a>
-        <a
-          :class="[
-            {
-              'disabled': !canGoForward,
-            }
-          ]"
-          @click="onShowNext"
-        >
-          <Typography :text="$t('home.pagination.next')" className="home--pagination--text" />
+          <Typography :text="$t('home.pagination.loadMore')" className="home--pagination--text" />
         </a>
       </div>
     </div>

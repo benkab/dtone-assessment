@@ -2,12 +2,11 @@ export const messages = {
   en: {
     home: {
       title: 'Available products',
-      searchByName: 'Search by name',
+      filterByName: 'Filter by name',
       loadingText: 'fetching data...',
       noFoundText: 'no products found...',
       pagination: {
-        previous: 'previous',
-        next: 'next',
+        loadMore: 'load more',
       },
       product: {
         viewMore: 'view more',

@@ -11,4 +11,11 @@
     font-size: map-get($font-sizes, 'sm');
     font-weight: map-get($font-weights, 'semi-bold');
   }
+
+  &--caption {
+    font-size: map-get($font-sizes, 'xxs');
+    text-transform: uppercase;
+    letter-spacing: 1.25px;
+    opacity: 0.65;
+  }
 }

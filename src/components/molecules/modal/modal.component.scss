@@ -108,13 +108,17 @@
 
     &--block--inner-container {
       display: flex;
+
+       @include large-phones {
+        flex-wrap: wrap;
+      }
     }
 
     &--small-block {
       width: 33.33%;
 
       @include large-phones {
-        width: 50%;
+        width: 45%;
       }
 
       &.indented {

@@ -4,6 +4,7 @@
 <script lang="ts">
 import { ACTIONS } from '@/store/product/actions'
 import { IProduct } from '@/types/product'
+import { GETTERS } from '@/store/product/getters'
 
 import Container from '@/components/layouts/container/container.component'
 import Modal from '@/components/molecules/modal/modal.component'
@@ -29,6 +30,8 @@ export default {
       visibleProducts: [] as IProduct[],
       step: 9,
       paginationLimit: 9,
+      pageLimit: 18,
+      canLoadMore: false,
     }
   },
   components: {
@@ -40,11 +43,10 @@ export default {
     Typography,
   },
   computed: {
-    canGoBack() {
-      return this.paginationLimit > this.step
-    },
-    canGoForward() {
-      return this.paginationLimit < this.products.data.length - 1
+    nextPage() {
+      return this.$store.state.nextPage
+      // console.log('store', this.$store.getters)
+      // return Boolean(this.$store.getters.getNextPage)
     },
   },
   methods: {
@@ -54,13 +56,13 @@ export default {
         data: [],
       }
       this.$store
-        .dispatch(ACTIONS.GET_PRODUCTS)
+        .dispatch(ACTIONS.GET_PRODUCTS, this.pageLimit)
         .then((data) => {
           this.products = {
             loading: false,
             data,
           }
-          this.visibleProducts = data.slice(0, this.paginationLimit)
+          this.visibleProducts = data
         })
         .catch((error) => {
           this.products = {
@@ -69,7 +71,7 @@ export default {
           }
         })
     },
-    onSearch(text: string) {
+    onFilter(text: string) {
       if (!text) {
         this.visibleProducts = this.products.data.slice(0, this.paginationLimit)
       } else {
@@ -78,26 +80,12 @@ export default {
         )
       }
     },
-    onShowNext() {
-      if (!this.canGoForward) {
+    onLoadMore() {
+      if (!this.canLoadMore) {
         return
       }
       const newLimit = this.paginationLimit + this.step
-      this.visibleProducts = this.products.data.slice(
-        this.paginationLimit,
-        newLimit
-      )
-      this.paginationLimit = newLimit
-    },
-    onShowPrevious() {
-      if (!this.canGoBack) {
-        return
-      }
-      const newLimit = this.paginationLimit - this.step
-      this.visibleProducts = this.products.data.slice(
-        newLimit,
-        this.paginationLimit
-      )
+      this.visibleProducts = this.products.data.slice(0, newLimit)
       this.paginationLimit = newLimit
     },
   },

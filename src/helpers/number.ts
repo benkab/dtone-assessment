@@ -6,5 +6,5 @@ export const beautifyNumber = (num: number): string => {
   if (str[1] && str[1].length >= 5) {
     str[1] = str[1].replace(/(\d{3})/g, '$1 ')
   }
-  return parseFloat(str.join('.')).toFixed(2)
+  return parseFloat(str.join('.')).toFixed(2).toString()
 }
