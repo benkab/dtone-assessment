@@ -1,10 +1,6 @@
-/** @format */
-
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
-import HomeView from '../views/home/home.component.vue'
-
-// import Home from '@/views/home/home.component';
+import HomeView from '@/views/home/home.component.vue'
 
 Vue.use(VueRouter)
 
