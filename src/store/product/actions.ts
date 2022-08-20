@@ -17,9 +17,9 @@ export const actions: ActionTree<IProductState, IRootState> = {
       console.log('NODE_ENV', node_env)
       console.log('BASE_URL', baseUrl)
       return fetch(
-        `${
-          node_env === 'production' ? baseUrl : ''
-        }/v1/products?per_page=${21}`,
+        node_env === 'production'
+          ? `${baseUrl}/v1/products?per_page=${21}`
+          : `/v1/products?per_page=${21}`,
         {
           headers,
           method: 'GET',
