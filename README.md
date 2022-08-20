@@ -1,5 +1,7 @@
 # dtone
 
+[![codecov](https://codecov.io/gh/benkab/dtone-assessment/branch/main/graph/badge.svg?token=ACB4970FXW)](https://codecov.io/gh/benkab/dtone-assessment)
+
 ## Project setup
 ```
 yarn install
