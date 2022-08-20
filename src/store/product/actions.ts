@@ -14,7 +14,6 @@ export enum ACTIONS {
 export const actions: ActionTree<IProductState, IRootState> = {
   [ACTIONS.GET_PRODUCTS]({ commit, state }): unknown {
     return new Promise((resolve, reject) => {
-      console.log('state', state)
       return fetch(`/v1/products?per_page=${PER_PAGE}&page=${state.nextPage}`, {
         headers,
         method: 'GET',
