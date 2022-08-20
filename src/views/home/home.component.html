@@ -1,7 +1,41 @@
 <div>
+  <Navbar />
   <Container>
     <div slot="container">
-      <Textfield placeholder="Your email address" label="first name" />
+      <div class="home--title-wrapper">
+        <Typography :text="$t('home.title')" className="home--title" />
+        <div>
+          <Textfield :placeholder="$t('home.searchByName')" noMargin :onInputChange="onSearch" />
+        </div>
+      </div>
+      <div class="home--content-wrapper">
+        <Typography v-if="products.loading" :text="$t('home.loadingText')" className="home--default-text" />
+        <Typography v-if="!products.loading && visibleProducts.length === 0" :text="$t('home.noFoundText')" className="home--default-text" />
+        <Product v-if="visibleProducts.length > 0" v-for="product in this.visibleProducts" :product="product" :key="product.id" />
+      </div>
+      <div v-if="visibleProducts.length > 0" class="home--pagination">
+        <a
+          :class="[
+            {
+              'disabled': !canGoBack,
+            }
+          ]"
+          @click="onShowPrevious"
+        >
+          <Typography :text="$t('home.pagination.previous')" className="home--pagination--text" />
+        </a>
+        <a
+          :class="[
+            {
+              'disabled': !canGoForward,
+            }
+          ]"
+          @click="onShowNext"
+        >
+          <Typography :text="$t('home.pagination.next')" className="home--pagination--text" />
+        </a>
+      </div>
     </div>
   </Container>
+  <Modal />
 </div>

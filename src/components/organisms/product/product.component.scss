@@ -1,0 +1,46 @@
+@import '@/sass/vars/vars.scss';
+@import '@/sass/mixins/mixins.scss';
+
+.product {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 21%;
+  padding-right: 60px;
+  height: 240px;
+
+  @include large-phones {
+    display: block;
+    height: auto;
+    margin-bottom: 32px;
+  }
+
+  &--name {
+    font-size: map-get($font-sizes, 'sm');
+    font-weight: map-get($font-weights, 'semi-bold');
+    margin-bottom: 8px;
+  }
+
+  &--description {
+    font-size: map-get($font-sizes, 'mxs');
+    line-height: calc(map-get($font-sizes, 'mxs') * 1.6);
+    margin-bottom: 0;
+  }
+
+  a {
+    color: $light-blue;
+    transition: opacity 250ms ease-in-out;
+
+    &:hover {
+      cursor: pointer;
+      opacity: 0.8;
+    }
+  }
+
+  &--caption {
+    font-size: map-get($font-sizes, 'xxs');
+    text-transform: uppercase;
+    letter-spacing: 1.25px;
+    opacity: 0.65;
+    margin: 0 0 4px 0;
+  }
+}

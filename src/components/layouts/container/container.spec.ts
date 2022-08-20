@@ -1,7 +1,7 @@
 /** @format */
 
 import { shallowMount } from '@vue/test-utils'
-import Container from '@/components/layouts/container/container.component.vue'
+import Container from './container.component.vue'
 
 describe('Container', () => {
   it('renders container component', () => {

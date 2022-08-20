@@ -1,0 +1,127 @@
+@import '@/sass/vars/vars.scss';
+@import '@/sass/mixins/mixins.scss';
+
+.modal {
+  position: relative;
+
+  &--backdrop {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba($color: #000000, $alpha: 0.4);
+    cursor: pointer;
+  }
+
+  &--content {
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 850px;
+    background-color: $white;
+    margin-right: -100vw;
+    transition: margin-right 150ms ease-in-out;
+    padding: 20px 32px;
+    overflow-y: scroll;
+
+    &--block {
+      margin-bottom: 16px;
+    }
+
+    @include large-phones {
+      margin-right: 0;
+      left: 0;
+      right: 0;
+      top: auto;
+      bottom: 0;
+      width: 100vw;
+      height: 85vh;
+      margin-bottom: -100vh;
+      transition: margin-bottom 100ms ease-in-out;
+      padding: 20px;
+    }
+
+    &--visible {
+      margin-right: 0;
+      transition: margin-right 250ms ease-in-out;
+
+      @include large-phones {
+        margin-bottom: 0;
+        transition: margin-bottom 150ms ease-in-out;
+      }
+    }
+
+    &--title {
+      font-size: map-get($font-sizes, 'lg');
+      font-weight: map-get($font-weights, 'semi-bold');
+      margin-bottom: 20px;
+      
+      &.no-margin-bottom {
+        margin-bottom: 0;
+      }
+    }
+
+    &--description {
+      font-size: map-get($font-sizes, 'mxs');
+      line-height: calc(map-get($font-sizes, 'mxs') * 1.6);
+      margin-bottom: 0;
+
+      @include large-phones {
+        width: 80%;
+      }
+    }
+
+    &--caption {
+      font-size: map-get($font-sizes, 'xxs');
+      text-transform: uppercase;
+      letter-spacing: 1.25px;
+      margin-bottom: 16px;
+      opacity: 0.65;
+
+      &.no-margin {
+        margin-top: 4px;
+      }
+    }
+
+    &--subtitle {
+      font-size: map-get($font-sizes, 'xs');
+      margin-bottom: 4px;
+    }
+
+    &--second-subtitle {
+      font-size: map-get($font-sizes, 'xs');
+      margin: -8px 0 8px 0;
+      font-style: italic;
+      position: absolute;
+      left: 0px;
+
+    }
+
+    &--text {
+      font-size: map-get($font-sizes, 'xs');
+      opacity: 0.6;
+      margin-top: 0;
+      margin-bottom: 12px;
+    }
+
+    &--block--inner-container {
+      display: flex;
+    }
+
+    &--small-block {
+      width: 33.33%;
+
+      @include large-phones {
+        width: 50%;
+      }
+
+      &.indented {
+        padding-left: 8px;
+        position: relative;
+        padding-top: 10px;
+      }
+    }
+  }
+}

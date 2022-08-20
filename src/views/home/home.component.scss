@@ -1,0 +1,58 @@
+@import '@/sass/vars/vars.scss';
+@import '@/sass/mixins/mixins.scss';
+
+.home {
+  &--title-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    @include large-phones {
+      display: block;
+    }
+
+  }
+
+  &--title {
+    font-size: map-get($font-sizes, 'lg');
+    font-weight: map-get($font-weights, 'semi-bold');
+    padding-bottom: 0px;
+  }
+
+  &--content-wrapper {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 0px;
+    align-items: flex-start;
+  }
+
+  &--default-text {
+    font-size: map-get($font-sizes, 'xs');
+    opacity: 0.7;
+  }
+
+  &--pagination {
+    padding-bottom: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    a {
+      color: $light-blue;
+      transition: opacity 250ms ease-in-out;
+
+      &:hover {
+        cursor: pointer;
+        opacity: 0.8;
+      }
+
+      &.disabled {
+        color: $dark;
+        opacity: 0.3;
+        cursor: not-allowed;
+      }
+    }
+  }
+}

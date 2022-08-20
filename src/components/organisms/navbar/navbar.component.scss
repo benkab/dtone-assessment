@@ -1,0 +1,14 @@
+@import '@/sass/vars/vars.scss';
+
+.navbar {
+  padding: 20px 0;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &--logo {
+    font-size: map-get($font-sizes, 'sm');
+    font-weight: map-get($font-weights, 'semi-bold');
+  }
+}
