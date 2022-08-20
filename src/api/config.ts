@@ -1,5 +1,5 @@
 export const headers = {
-  Authorization: `Basic NmQwNDgwZDUtMjEzMi01NmJiLTlmMDQtZmVjNjEzZGUyYWM0OmZhODM4NzU0LWMyZTAtNTExOC04NWJhLWJlOGI4MzViMDc3NA==`,
+  Authorization: `Basic ${process.env.VUE_APP_AUTH_TOKEN}`,
   accept: 'application/json',
   'Content-Type': 'application/json',
 }
